@@ -11,10 +11,57 @@
     <link rel="stylesheet" href="./src/styles/positioning.css" />
     <link rel="stylesheet" href="./src/styles/modal.css" />
     <link rel="stylesheet" href="./src/styles/toast.css" />
+    <link rel="stylesheet" href="./src/styles/select.css" />
 
     <title>Document</title>
   </head>
   <body>
+    <nav class="containerNav">
+      <div class="flex gap12">
+        <img src="./src/assets/logo roxa.png" alt="" />
+        <img src="./src/assets/Kenzie Empresas.png" alt="" />
+      </div>
+      <div id="btnsLogin" class="flex gap12 justify-evenly">
+        <button class="btnWhiteLogin">Login</button>
+        <button class="btnBlueRegister">Cadastro</button>
+      </div>
+      <button id="openModal" class="btnMenu">
+        <img src="./src/assets/btn menu.png" alt="" />
+      </button>
+      <dialog id="modalNav">
+        <div class="containerDialog">
+          <div class="flex align-center justify-between width100 mBotton40">
+            <div class="flex align-center gap12">
+              <img src="./src/assets/logo roxa.png" alt="" />
+              <img src="./src/assets/Kenzie Empresas.png" alt="" />
+            </div>
+            <button id="closeModal" class="btnMenu">
+              <img src="./src/assets/x.png" alt="" />
+            </button>
+          </div>
+          <div class="flex width100 justify-evenly">
+            <button class="btnWhiteLogin">Login</button>
+            <button class="btnBlueRegister">Cadastro</button>
+          </div>
+        </div>
+      </dialog>
+    </nav>
+    <main class="containerMain">
+      <section>
+        <div class="containerDesktop">
+          <div class="divImg">
+            <img src="./src/assets/Rectangle 6.png" alt="" />
+          </div>
+          <div class="custom-select">
+            <select id="select-section">
+              <option value="Todos">Selecionar Setor</option>
+              <option id="optionAll" value="Todos">Todos</option>
+            </select>
+            <ul></ul>
+          </div>
+        </div>
+      </section>
+    </main>
     <script type="module" src="./index.js"></script>
   </body>
 </html>
