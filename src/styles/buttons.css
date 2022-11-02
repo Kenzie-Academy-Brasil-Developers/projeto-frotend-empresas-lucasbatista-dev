@@ -1,0 +1,72 @@
+#btnsLogin {
+  display: none;
+}
+
+.btnMenu {
+  /* background-image: url(../assets/btn\ menu.png); */
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: transparent;
+  border: none;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+.btnWhiteLogin {
+  border: 1px solid var(--color-brand-blue);
+  background-color: white;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 21px;
+  padding: 11px 37px;
+  color: var(--color-brand-blue);
+}
+.btnWhiteHome {
+  border: 1px solid var(--color-brand-blue);
+  background-color: white;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 21px;
+  padding: 11px 37px;
+  color: var(--color-brand-blue);
+}
+.btnWhiteReturn {
+  border: 1px solid var(--color-brand-blue);
+  background-color: white;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 21px;
+  padding: 11px 37px;
+  color: var(--color-brand-blue);
+}
+.btnBlueRegister {
+  border: 1px solid var(--color-brand-blue);
+  background-color: var(--color-brand-blue);
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 21px;
+  padding: 11px 37px;
+  color: var(--color-grey-1000);
+}
+.btnBlue {
+  border: 1px solid var(--color-brand-blue);
+  background-color: var(--color-brand-blue);
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 21px;
+  padding: 11px 37px;
+  color: var(--color-grey-1000);
+}
+@media (min-width: 800px) {
+  .btnMenu {
+    display: none;
+  }
+  #btnsLogin {
+    display: flex;
+  }
+}
