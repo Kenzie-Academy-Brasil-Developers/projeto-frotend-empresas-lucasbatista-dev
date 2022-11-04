@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./index.css" />
+    <link rel="stylesheet" href="../../styles/buttons.css" />
+    <link rel="stylesheet" href="../../styles/globalStyles.css" />
+    <link rel="stylesheet" href="../../styles/margins.css" />
+    <link rel="stylesheet" href="../../styles/modal.css" />
+    <link rel="stylesheet" href="../../styles/positioning.css" />
+    <link rel="stylesheet" href="../../styles/toast.css" />
+    <link rel="stylesheet" href="../../styles/inputs.css" />
+    <title>Admin Page</title>
+  </head>
+  <body>
+    <nav class="containerNav">
+      <div class="flex gap12">
+        <img src="../../assets/logo roxa.png" alt="" />
+        <img src="../../assets/Kenzie Empresas.png" alt="" />
+      </div>
+      <div id="btnsLogin" class="flex gap12 justify-evenly">
+        <button id="btnLogout" class="btnWhiteHome">Logout</button>
+      </div>
+    </nav>
+    <main class="containerMain">
+      <aside class="containerAside">
+        <h2>Departamentos</h2>
+        <select id="select-section">
+          <option id="selectCompany" value="Todos">Selecionar empresa</option>
+        </select>
+        <button id="openModalCreate" class="btnBlue">
+          <img src="../../assets/mais.png" alt="" /> Criar
+        </button>
+      </aside>
+      <section>
+        <ul id="ulDepartments"></ul>
+      </section>
+      <section>
+        <div>
+          <h2>Usuários Cadastrados</h2>
+        </div>
+        <ul>
+          <li>
+            <h3>Username</h3>
+            <p>Plêno</p>
+            <p>Company Name</p>
+            <div>
+              <button><img src="../../assets/caneta.png" alt="" /></button>
+              <button><img src="../../assets/lixeira.png" alt="" /></button>
+            </div>
+          </li>
+        </ul>
+      </section>
+      <dialog id="modalCreate">
+        <div class="containerModal">
+          <button id="closeModal">X</button>
+          <h3>Nome do departament</h3>
+          <div class="modalHeader">
+            <div class="flex column gap12">
+              <p>Descrição do departamento</p>
+              <small>Empresa pertencente</small>
+            </div>
+            <div class="flex column width425 align-end gap12">
+              <select name="" id="">
+                <option value="">Selecionar usuário</option>
+              </select>
+              <button>Contratar</button>
+            </div>
+          </div>
+          <div>
+            <ul>
+              <li>
+                <p class="userName">Username</p>
+                <p class="infoUser">Pleno</p>
+                <p>Company Name</p>
+                <div class="width100 flex justify-center">
+                  <button class="btnWhiteRed">Desligar</button>
+                </div>
+              </li>
+              <li>
+                <p class="userName">Username</p>
+                <p class="infoUser">Pleno</p>
+                <p>Company Name</p>
+                <div class="width100 flex justify-center">
+                  <button class="btnWhiteRed">Desligar</button>
+                </div>
+              </li>
+              <li>
+                <p class="userName">Username</p>
+                <p class="infoUser">Pleno</p>
+                <p>Company Name</p>
+                <div class="width100 flex justify-center">
+                  <button class="btnWhiteRed">Desligar</button>
+                </div>
+              </li>
+              <li>
+                <p class="userName">Username</p>
+                <p class="infoUser">Pleno</p>
+                <p>Company Name</p>
+                <div class="width100 flex justify-center">
+                  <button class="btnWhiteRed">Desligar</button>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </dialog>
+    </main>
+    <script type="module" src="./index.js"></script>
+  </body>
+</html>
