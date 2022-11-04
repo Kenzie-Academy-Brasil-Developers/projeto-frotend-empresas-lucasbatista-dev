@@ -8,12 +8,71 @@
     <link rel="stylesheet" href="../../styles/buttons.css" />
     <link rel="stylesheet" href="../../styles/globalStyles.css" />
     <link rel="stylesheet" href="../../styles/margins.css" />
-    <link rel="stylesheet" href="../../styles/modal.css" />
+
     <link rel="stylesheet" href="../../styles/positioning.css" />
     <link rel="stylesheet" href="../../styles/toast.css" />
+    <link rel="stylesheet" href="../../styles/inputs.css" />
     <title>Login</title>
   </head>
   <body>
+    <nav class="containerNav">
+      <div class="flex gap12">
+        <img src="../../assets/logo roxa.png" alt="" />
+        <img src="../../assets/Kenzie Empresas.png" alt="" />
+      </div>
+      <div id="btnsLogin" class="flex gap12 justify-evenly">
+        <button class="btnWhiteHome">Home</button>
+        <button class="btnBlueRegister2">Cadastro</button>
+      </div>
+      <button id="openModal" class="btnMenu">
+        <img src="../../assets/btn menu.png" alt="" />
+      </button>
+      <dialog id="modalNav">
+        <div class="containerDialog">
+          <div class="flex align-center justify-between width100 mBotton40">
+            <div class="flex align-center gap12">
+              <img src="../../assets/logo roxa.png" alt="" />
+              <img src="../../assets/Kenzie Empresas.png" alt="" />
+            </div>
+            <button id="closeModal" class="btnMenu">
+              <img src="../../assets/x.png" alt="" />
+            </button>
+          </div>
+          <div class="flex width100 justify-evenly">
+            <button class="btnWhiteHome">Home</button>
+            <button class="btnBlueRegister2">Cadastro</button>
+          </div>
+        </div>
+      </dialog>
+    </nav>
+    <main class="containerMain">
+      <div class="containerForm">
+        <p>Login</p>
+        <small>Preencha os campos para realizar login</small>
+        <form>
+          <input
+            class="inputModel"
+            type="email"
+            placeholder="Seu e-mail"
+            id="email"
+            required
+          />
+          <input
+            class="inputModel"
+            type="password"
+            placeholder="Sua senha"
+            id="password"
+            required
+          />
+          <button id="btnLogin" class="btnBlue">Login</button>
+        </form>
+        <div class="flex column gap16 align-center width100">
+          <small>ou</small>
+          <button class="btnWhiteRegister width100">Cadastre-se</button>
+        </div>
+      </div>
+    </main>
+
     <script type="module" src="./index.js"></script>
   </body>
 </html>

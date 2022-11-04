@@ -21,6 +21,7 @@
   line-height: 21px;
   padding: 11px 37px;
   color: var(--color-brand-blue);
+  cursor: pointer;
 }
 .btnWhiteHome {
   border: 1px solid var(--color-brand-blue);
@@ -31,6 +32,7 @@
   line-height: 21px;
   padding: 11px 37px;
   color: var(--color-brand-blue);
+  cursor: pointer;
 }
 .btnWhiteReturn {
   border: 1px solid var(--color-brand-blue);
@@ -41,6 +43,18 @@
   line-height: 21px;
   padding: 11px 37px;
   color: var(--color-brand-blue);
+  cursor: pointer;
+}
+.btnWhiteRegister {
+  border: 1px solid var(--color-brand-blue);
+  background-color: white;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 21px;
+  padding: 11px 37px;
+  color: var(--color-brand-blue);
+  cursor: pointer;
 }
 .btnBlueRegister {
   border: 1px solid var(--color-brand-blue);
@@ -51,6 +65,29 @@
   line-height: 21px;
   padding: 11px 37px;
   color: var(--color-grey-1000);
+  cursor: pointer;
+}
+.btnBlueRegister2 {
+  border: 1px solid var(--color-brand-blue);
+  background-color: var(--color-brand-blue);
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 21px;
+  padding: 11px 37px;
+  color: var(--color-grey-1000);
+  cursor: pointer;
+}
+.btnBlueLogin {
+  border: 1px solid var(--color-brand-blue);
+  background-color: var(--color-brand-blue);
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 21px;
+  padding: 11px 37px;
+  color: var(--color-grey-1000);
+  cursor: pointer;
 }
 .btnBlue {
   border: 1px solid var(--color-brand-blue);
@@ -60,7 +97,21 @@
   font-size: 18px;
   line-height: 21px;
   padding: 11px 37px;
+  gap: 15px;
+  display: flex;
   color: var(--color-grey-1000);
+  cursor: pointer;
+}
+.btnWhiteRed {
+  width: 157px;
+  height: 48px;
+  background-color: white;
+  border: 1px solid #ce4646;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: center;
+  color: #ce4646;
 }
 @media (min-width: 800px) {
   .btnMenu {

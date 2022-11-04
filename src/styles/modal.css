@@ -1,0 +1,108 @@
+dialog::backdrop {
+  background-color: rgb(0 0 0/ 0.2);
+}
+dialog {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  padding: 40px 50px;
+  border: none;
+  border-radius: 8px;
+}
+
+dialog #closeModal {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  border: none;
+  cursor: pointer;
+  font-size: 25px;
+  background-color: transparent;
+}
+
+/* --------Create Modal Department --------- */
+
+#modalCreate .containerModal {
+  width: 857px;
+  height: 637px;
+}
+#modalCreate .containerModal h3 {
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 54px;
+}
+#modalCreate .containerModal .modalHeader {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+#modalCreate .containerModal .modalHeader select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: white;
+  background: url(../assets/arrow\ select.png) no-repeat center right 25px #fff;
+  width: 422px;
+  height: 52px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  color: rgba(0, 0, 0, 0.5);
+}
+#modalCreate .containerModal .modalHeader button {
+  width: 157px;
+  height: 48px;
+  border: none;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: center;
+  color: #ffffff;
+  background: #4ba036;
+}
+#modalCreate .containerModal .modalHeader p {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 30px;
+}
+#modalCreate .containerModal .modalHeader small {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 27px;
+}
+
+#modalCreate .containerModal ul {
+  width: 100%;
+  height: 290px;
+  margin-top: 55px;
+  overflow-x: scroll;
+  padding: 43px 33px;
+  display: flex;
+  gap: 32px;
+  background-color: #f8f8f8;
+}
+#modalCreate .containerModal ul li {
+  min-width: 306px;
+  height: 180px;
+  padding: 18px 29px;
+  background: #ffffff;
+  border-bottom: 1px solid #4200ff;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+#modalCreate .containerModal ul li .userName {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+}
+#modalCreate .containerModal ul li .infoUser {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+}

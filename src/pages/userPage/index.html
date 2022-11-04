@@ -11,9 +11,56 @@
     <link rel="stylesheet" href="../../styles/modal.css" />
     <link rel="stylesheet" href="../../styles/positioning.css" />
     <link rel="stylesheet" href="../../styles/toast.css" />
-    <title>UserPage</title>
+    <link rel="stylesheet" href="../../styles/inputs.css" />
+    <title>User Page</title>
   </head>
   <body>
+    <nav class="containerNav">
+      <div class="flex gap12">
+        <img src="../../assets/logo roxa.png" alt="" />
+        <img src="../../assets/Kenzie Empresas.png" alt="" />
+      </div>
+      <div id="btnsLogin" class="flex gap12 justify-evenly">
+        <button id="btnLogout" class="btnWhiteHome">Logout</button>
+      </div>
+    </nav>
+    <main>
+      <section class="userInfo"></section>
+      <div class="containerCompany"></div>
+
+      <section class="coworkersInfo">
+        <ul id="listCoworkers"></ul>
+      </section>
+
+      <dialog id="modalNav">
+        <div class="containerModal">
+          <button id="closeModal">X</button>
+          <p>Editar Perfil</p>
+          <form>
+            <input
+              class="inputModel"
+              type="text"
+              id="username"
+              placeholder="Seu nome"
+            />
+            <input
+              class="inputModel"
+              type="email"
+              id="email"
+              placeholder="Seu e-mail"
+            />
+            <input
+              class="inputModel"
+              type="password"
+              id="password"
+              placeholder="Sua senha"
+            />
+            <button class="btnBlue">Editar Perfil</button>
+          </form>
+        </div>
+      </dialog>
+    </main>
+
     <script type="module" src="./index.js"></script>
   </body>
 </html>

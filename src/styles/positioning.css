@@ -25,6 +25,9 @@
 .text-center {
   text-align: center;
 }
+.align-end {
+  align-items: flex-end;
+}
 .wrap {
   flex-wrap: wrap;
 }
@@ -37,7 +40,9 @@
 .gap20 {
   gap: 20px;
 }
-
+.gap6 {
+  gap: 6px;
+}
 .gap12 {
   gap: 12px;
 }
@@ -46,4 +51,7 @@
 }
 .display-none {
   display: none;
+}
+.width425 {
+  width: 425px;
 }

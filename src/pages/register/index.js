@@ -1,6 +1,6 @@
 import {
   redirectHomePage,
-  redirectLoginPage,
+  redirectLoginPage2,
   redirectRegisterPage,
 } from "../../scripts/buttons.js";
 import { registerUser } from "../../scripts/requests.js";
@@ -21,14 +21,15 @@ const openMenu = () => {
 openMenu();
 // ------------------------------> Funções de clique
 
-redirectLoginPage();
 redirectRegisterPage();
 redirectHomePage();
+redirectLoginPage2();
 
 // ------------------------------> Registro de Usuário
 
 const eventRegister = () => {
   const form = document.querySelector("form");
+
   const elements = [...form.elements];
 
   form.addEventListener("submit", async (e) => {

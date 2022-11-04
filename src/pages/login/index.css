@@ -1,0 +1,81 @@
+.containerMain {
+  width: 100vw;
+  height: 91vh;
+  background-image: url(../../assets/Rectangle\ 6.png);
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.containerNav {
+  height: 80px;
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  align-items: center;
+  padding: 27px;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+#modalNav {
+  width: 100%;
+  height: 155px;
+  border: none;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.12);
+  position: fixed;
+  top: 0;
+  padding-top: 27px;
+  padding-left: 27px;
+  padding-right: 27px;
+  z-index: 1;
+}
+
+.containerForm {
+  min-width: 358px;
+  max-width: 506px;
+  min-height: 519px;
+  max-height: 519px;
+  background: rgba(255, 255, 255, 0.95);
+  display: flex;
+  flex-direction: column;
+  padding: 40px 20px;
+  gap: 26px;
+}
+.containerForm p {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 48px;
+}
+.containerForm form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+small {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+}
+@media (min-width: 800px) {
+  body {
+    width: 100vw;
+    height: 100vh;
+  }
+  .containerNav {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  #modalNav {
+    visibility: hidden;
+    display: none;
+  }
+  .containerForm {
+    width: 506px;
+    height: 519px;
+    padding: 40px;
+  }
+}
