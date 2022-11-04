@@ -2,6 +2,7 @@ import { logout } from "../../scripts/buttons.js";
 import { getUserTokenLocalStorage } from "../../scripts/localStorage.js";
 import { openCreateDepartment } from "../../scripts/openModal.js";
 import {
+  renderAllEmployes,
   renderCompaniesAdminPage,
   renderDepartamentsByCompany,
 } from "../../scripts/render.js";
@@ -21,8 +22,9 @@ openCreateDepartment();
 // console.log(await getAllUsersWithoutDepartment(token));
 // console.log(await listAllDepartments(token));
 // console.log(await allCompanies());
-console.log(await getAllUsers(token));
+// console.log(await getAllUsers(token));
 
 //------------------------Renderizar options
 await renderCompaniesAdminPage();
 await renderDepartamentsByCompany();
+renderAllEmployes();
