@@ -25,22 +25,299 @@ dialog #closeModal {
 
 /* --------Create Modal Department --------- */
 
-#modalCreate .containerModal {
-  width: 857px;
-  height: 637px;
+.containerModal {
+  width: 506px;
+  height: 350px;
+  gap: 20px;
+  display: flex;
+  flex-direction: column;
 }
-#modalCreate .containerModal h3 {
+.containerModal #closeModalCreate {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  border: none;
+  font-size: 20px;
+  color: black;
+}
+.containerModal h2 {
+  font-style: normal;
   font-weight: 700;
   font-size: 36px;
   line-height: 54px;
 }
-#modalCreate .containerModal .modalHeader {
+.containerModal form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.containerModal form input {
+  height: 52px;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  padding-left: 15px;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 21px;
+  color: rgba(0, 0, 0, 0.5);
+}
+.containerModal form select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: url(../assets/arrow\ select.png) no-repeat center right 10px #fff;
+  color: black;
+  height: 52px;
+  padding-left: 17px;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 21px;
+  color: rgba(0, 0, 0, 0.5);
+}
+.containerModal form button {
+  height: 48px;
+  border: none;
+  background: #4200ff;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22px;
+  color: #ffffff;
+  margin-top: 20px;
+}
+/* --------Modal Delete User --------- */
+
+.containerDeleteUser {
+  width: 650px;
+  height: 250px;
+  padding: 50px 110px;
+}
+.containerDeleteUser h2 {
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 42px;
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.containerDeleteUser .closeDeleteModal {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  border: none;
+  font-size: 20px;
+  color: black;
+}
+.containerDeleteUser button {
+  width: 100%;
+  height: 48px;
+
+  background: #4ba036;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: center;
+  color: #ffffff;
+  border: none;
+}
+
+/* --------Modal Edit User --------- */
+
+.containerEditUser {
+  width: 506px;
+  height: 342px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.containerEditUser .closeEditModal {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  border: none;
+  font-size: 20px;
+  color: black;
+}
+.containerEditUser h2 {
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 54px;
+  margin-bottom: 20px;
+}
+.containerEditUser #formEditUser {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.containerEditUser #formEditUser #professional_level {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: url(../assets/arrow\ select.png) no-repeat center right 10px #fff;
+  color: black;
+  height: 52px;
+  padding-left: 17px;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 21px;
+  color: rgba(0, 0, 0, 0.5);
+}
+.containerEditUser #formEditUser #kind_of_work {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: url(../assets/arrow\ select.png) no-repeat center right 10px #fff;
+  color: black;
+  height: 52px;
+  padding-left: 17px;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 21px;
+  color: rgba(0, 0, 0, 0.5);
+}
+.containerEditUser #formEditUser #editUserBtn {
+  height: 48px;
+  width: 100%;
+  background: #4200ff;
+  border: none;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22px;
+  color: #ffffff;
+  margin-top: 20px;
+}
+
+/* --------Modal Delete Department --------- */
+
+#containerDeleteDepartment {
+  width: 650px;
+  height: 250px;
+  padding: 50px 110px;
+}
+#containerDeleteDepartment #closeDeleteDepartment {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  border: none;
+  font-size: 20px;
+  color: black;
+}
+#containerDeleteDepartment p {
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 42px;
+  text-align: center;
+  margin-bottom: 35px;
+}
+#containerDeleteDepartment #deleteBtn {
+  width: 100%;
+  height: 48px;
+
+  background: #4ba036;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: center;
+  color: #ffffff;
+  border: none;
+}
+
+/* --------Modal Edit Department --------- */
+
+.containerDepartment {
+  width: 506px;
+  height: 342px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.containerDepartment .closeEditModal {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  border: none;
+  font-size: 20px;
+  color: black;
+}
+.containerDepartment h2 {
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 54px;
+}
+.containerDepartment form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.containerDepartment form textarea {
+  padding: 20px;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 21px;
+  color: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(0, 0, 0, 0.3);
+}
+.containerDepartment form button {
+  height: 48px;
+  border: none;
+  background: #4200ff;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22px;
+  color: #ffffff;
+  margin-top: 20px;
+}
+
+/* --------Modal VIEW Department --------- */
+
+#modalView .containerModal {
+  width: 857px;
+  height: 637px;
+}
+#modalView .containerModal h3 {
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 54px;
+}
+#modalView .containerModal .closeModal {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  border: none;
+  font-size: 20px;
+  color: black;
+}
+#modalView .containerModal .modalHeader {
   width: 100%;
   display: flex;
   justify-content: space-between;
   margin-top: 30px;
 }
-#modalCreate .containerModal .modalHeader select {
+#modalView .containerModal .modalHeader select {
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -54,7 +331,7 @@ dialog #closeModal {
   line-height: 22px;
   color: rgba(0, 0, 0, 0.5);
 }
-#modalCreate .containerModal .modalHeader button {
+#modalView .containerModal .modalHeader button {
   width: 157px;
   height: 48px;
   border: none;
@@ -65,18 +342,18 @@ dialog #closeModal {
   color: #ffffff;
   background: #4ba036;
 }
-#modalCreate .containerModal .modalHeader p {
+#modalView .containerModal .modalHeader p {
   font-weight: 700;
   font-size: 20px;
   line-height: 30px;
 }
-#modalCreate .containerModal .modalHeader small {
+#modalView .containerModal .modalHeader small {
   font-weight: 400;
   font-size: 18px;
   line-height: 27px;
 }
 
-#modalCreate .containerModal ul {
+#modalView .containerModal ul {
   width: 100%;
   height: 290px;
   margin-top: 55px;
@@ -86,7 +363,7 @@ dialog #closeModal {
   gap: 32px;
   background-color: #f8f8f8;
 }
-#modalCreate .containerModal ul li {
+#modalView .containerModal ul li {
   min-width: 306px;
   height: 180px;
   padding: 18px 29px;
@@ -96,12 +373,12 @@ dialog #closeModal {
   flex-direction: column;
   gap: 10px;
 }
-#modalCreate .containerModal ul li .userName {
+#modalView .containerModal ul li .userName {
   font-weight: 700;
   font-size: 20px;
   line-height: 24px;
 }
-#modalCreate .containerModal ul li .infoUser {
+#modalView .containerModal ul li .infoUser {
   font-weight: 400;
   font-size: 18px;
   line-height: 22px;

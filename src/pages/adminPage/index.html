@@ -45,55 +45,48 @@
       </section>
       <dialog id="modalCreate">
         <div class="containerModal">
-          <button id="closeModal">X</button>
-          <h3>Nome do departament</h3>
+          <button id="closeModalCreate">X</button>
+          <h2>Criar Departamento</h2>
+          <form id="formCreateDepartment">
+            <input
+              required
+              placeholder="Nome do departamento"
+              type="	text"
+              id="name"
+            />
+            <input
+              required
+              placeholder="Descrição"
+              type="text"
+              id="description"
+            />
+            <select id="company_uuid">
+              <option hidden value="">Selecionar empresa</option>
+            </select>
+            <button>Criar o departamento</button>
+          </form>
+        </div>
+      </dialog>
+      <dialog id="modalView">
+        <div class="containerModal">
+          <button class="closeModal">X</button>
+          <h3 id="departmentName">Nome do departament</h3>
           <div class="modalHeader">
             <div class="flex column gap12">
-              <p>Descrição do departamento</p>
-              <small>Empresa pertencente</small>
+              <p id="depDescription">Descrição do departamento</p>
+              <small id="depCompany">Empresa pertencente</small>
             </div>
             <div class="flex column width425 align-end gap12">
-              <select name="" id="">
-                <option value="">Selecionar usuário</option>
-              </select>
-              <button>Contratar</button>
+              <form id="formHire">
+                <select required id="user_uuid">
+                  <option value="">Selecionar usuário</option>
+                </select>
+                <button id="hireEmployee">Contratar</button>
+              </form>
             </div>
           </div>
           <div>
-            <ul>
-              <li>
-                <p class="userName">Username</p>
-                <p class="infoUser">Pleno</p>
-                <p>Company Name</p>
-                <div class="width100 flex justify-center">
-                  <button class="btnWhiteRed">Desligar</button>
-                </div>
-              </li>
-              <li>
-                <p class="userName">Username</p>
-                <p class="infoUser">Pleno</p>
-                <p>Company Name</p>
-                <div class="width100 flex justify-center">
-                  <button class="btnWhiteRed">Desligar</button>
-                </div>
-              </li>
-              <li>
-                <p class="userName">Username</p>
-                <p class="infoUser">Pleno</p>
-                <p>Company Name</p>
-                <div class="width100 flex justify-center">
-                  <button class="btnWhiteRed">Desligar</button>
-                </div>
-              </li>
-              <li>
-                <p class="userName">Username</p>
-                <p class="infoUser">Pleno</p>
-                <p>Company Name</p>
-                <div class="width100 flex justify-center">
-                  <button class="btnWhiteRed">Desligar</button>
-                </div>
-              </li>
-            </ul>
+            <ul id="viewUser"></ul>
           </div>
         </div>
       </dialog>
@@ -105,6 +98,50 @@
             <span class="nameDeleteUser"></span>
           </h2>
           <button class="deleteBtn">Deletar</button>
+        </div>
+      </dialog>
+      <dialog id="editUser">
+        <div class="containerEditUser">
+          <button class="closeEditModal">X</button>
+          <h2>Editar Usuário</h2>
+          <form id="formEditUser">
+            <select id="professional_level">
+              <option hidden>Selecionar nível profissional</option>
+              <option value="estágio">Estagiário</option>
+              <option value="júnior">Júnior</option>
+              <option value="pleno">Pleno</option>
+              <option value="sênior">Sênior</option>
+            </select>
+            <select id="kind_of_work">
+              <option hidden>Selecionar modalidade de trabalho</option>
+              <option value="presencial">Presencial</option>
+              <option value="hibrido">Híbrido</option>
+              <option value="home office">home-office</option>
+            </select>
+
+            <button id="editUserBtn">Editar</button>
+          </form>
+        </div>
+      </dialog>
+      <dialog id="deleteDepartment">
+        <div id="containerDeleteDepartment">
+          <button id="closeDeleteDepartment">X</button>
+          <p>
+            Realmente deseja deletar o Departamento
+            <span id="nameDeletedDepartment">NOME</span> e demitir seus
+            funcionários?
+          </p>
+          <button id="deleteBtn">Confirmar</button>
+        </div>
+      </dialog>
+      <dialog id="editDepartment">
+        <div class="containerDepartment">
+          <button class="closeEditModal">X</button>
+          <h2>Editar Departamento</h2>
+          <form id="formEditDepartment">
+            <textarea name="" id="description" cols="25" rows="5"></textarea>
+            <button id="editDepartmentBtn">Editar</button>
+          </form>
         </div>
       </dialog>
     </main>

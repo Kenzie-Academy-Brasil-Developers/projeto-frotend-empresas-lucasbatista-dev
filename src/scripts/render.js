@@ -2,13 +2,19 @@ import {
   allCompanies,
   allDepartment,
   companiesBySector,
+  deleteDepartment,
   deleteUser,
+  dismissEmployee,
+  editDepartment,
   getAllUsers,
+  getAllUsersWithoutDepartment,
   getUsersInformation,
+  hireEmployee,
   listAllDepartments,
   listAllDepartmentsByCompany,
   listCompanyDepartmentsByUser,
   listDepartmentsCoworkers,
+  updateEmployeeInformation,
 } from "./requests.js";
 import { getUserTokenLocalStorage } from "./localStorage.js";
 
@@ -216,6 +222,20 @@ export const renderCompaniesAdminPage = async () => {
     );
   });
 };
+export const renderCompaniesCreate = async () => {
+  const select = document.querySelector("#company_uuid");
+  const options = await allCompanies();
+
+  options.forEach((element) => {
+    select.insertAdjacentHTML(
+      "afterbegin",
+      `
+      <option name="company_uuid" value="${element.uuid}">${element.name}</option>
+        
+    `
+    );
+  });
+};
 
 export const renderDepartamentsByCompany = async () => {
   const { token } = getUserTokenLocalStorage();
@@ -232,15 +252,117 @@ export const renderDepartamentsByCompany = async () => {
     const description = document.createElement("p");
     description.innerText = element.description;
     const companyName = document.createElement("p");
-    // companyName.innerText =
+    companyName.innerText = element.companies.name;
 
     const divBtns = document.createElement("div");
     const btnEye = document.createElement("button");
+    btnEye.addEventListener("click", async (e) => {
+      e.preventDefault();
+
+      const depName = document.querySelector("#departmentName");
+      depName.innerText = element.name;
+      const depDescription = document.querySelector("#depDescription");
+      depDescription.innerText = element.description;
+      const depCompany = document.querySelector("#depCompany");
+      depCompany.innerText = element.companies.name;
+      const modal = document.querySelector("#modalView");
+      const buttonClose = document.querySelector(".closeModal");
+      modal.showModal();
+      buttonClose.onclick = function () {
+        modal.close();
+      };
+      const select = document.querySelector("#user_uuid");
+      const options = await getAllUsersWithoutDepartment(token);
+      options.forEach((element) => {
+        select.insertAdjacentHTML(
+          "afterbegin",
+          `
+          <option value="${element.uuid}">${element.username}</option>
+            
+        `
+        );
+      });
+      const ulviewUser = document.querySelector("#viewUser");
+      const allUsersView = await getAllUsers(token);
+      ulviewUser.innerHTML = "";
+
+      allUsersView.forEach((user) => {
+        if (user.department_uuid == element.uuid) {
+          const tagLi = document.createElement("li");
+          const userName = document.createElement("p");
+          userName.classList = "userName";
+          userName.innerText = user.username;
+          const userLvl = document.createElement("p");
+          userLvl.classList = "infoUser";
+          userLvl.innerText = user.professional_level;
+          const companyName = document.createElement("p");
+          companyName.innerText = element.companies.name;
+          const divBtn = document.createElement("div");
+          divBtn.classList = "width100 flex justify-center";
+          const btn = document.createElement("button");
+          btn.addEventListener("click", async (e) => {
+            e.preventDefault();
+            await dismissEmployee(token, user.uuid);
+            window.location.reload();
+          });
+          btn.classList = "btnWhiteRed";
+          btn.innerText = "Desligar";
+
+          divBtn.append(btn);
+          tagLi.append(userName, userLvl, companyName, divBtn);
+
+          ulviewUser.append(tagLi);
+        }
+      });
+
+      const form = document.querySelector("#formHire");
+      const elements = [...form.elements];
+
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const body = {};
+        elements.forEach((ele) => {
+          if (ele.tagName == "SELECT") {
+            body[ele.id] = ele.value;
+            body["department_uuid"] = element.uuid;
+          }
+        });
+        await hireEmployee(token, body);
+        window.location.reload();
+      });
+    });
     const imgEye = document.createElement("img");
     imgEye.src = "../../assets/olho.png";
     btnEye.append(imgEye);
 
     const btnPencil = document.createElement("button");
+    btnPencil.addEventListener("click", async (e) => {
+      e.preventDefault();
+      const modal = document.querySelector("#editDepartment");
+      const buttonClose = document.querySelector(".closeEditModal");
+      modal.showModal();
+      buttonClose.onclick = function () {
+        modal.close();
+      };
+
+      const form = document.querySelector("#formEditDepartment");
+
+      const elements = [...form];
+
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const body = {};
+
+        elements.forEach((element) => {
+          if (element.tagName == "TEXTAREA") {
+            body[element.id] = element.value;
+          }
+        });
+        await editDepartment(token, body, element.uuid);
+        window.location.reload();
+      });
+    });
+
     const pencilImg = document.createElement("img");
     pencilImg.src = "../../assets/caneta.png";
     btnPencil.append(pencilImg);
@@ -248,6 +370,25 @@ export const renderDepartamentsByCompany = async () => {
     const btnTrash = document.createElement("button");
     const trashImg = document.createElement("img");
     trashImg.src = "../../assets/lixeira.png";
+    btnTrash.addEventListener("click", async (e) => {
+      e.preventDefault();
+      const modal = document.querySelector("#deleteDepartment");
+      const buttonClose = document.querySelector("#closeDeleteDepartment");
+      modal.showModal();
+      buttonClose.onclick = function () {
+        modal.close();
+      };
+
+      const nameDepartment = document.querySelector("#nameDeletedDepartment");
+      nameDepartment.innerText = element.name;
+      const deleteBtn = document.querySelector("#deleteBtn");
+      deleteBtn.addEventListener("click", async (e) => {
+        e.preventDefault();
+        await deleteDepartment(token, element.uuid);
+        window.location.reload();
+      });
+    });
+
     btnTrash.append(trashImg);
 
     divBtns.append(btnEye, btnPencil, btnTrash);
@@ -281,17 +422,141 @@ export const renderDepartamentsByCompany = async () => {
 
             const divBtns = document.createElement("div");
             const btnEye = document.createElement("button");
+            btnEye.addEventListener("click", async (e) => {
+              e.preventDefault();
+
+              const depName = document.querySelector("#departmentName");
+              depName.innerText = element.name;
+              const depDescription = document.querySelector("#depDescription");
+              depDescription.innerText = element.description;
+              const depCompany = document.querySelector("#depCompany");
+              depCompany.innerText = element.companies.name;
+              const modal = document.querySelector("#modalView");
+              const buttonClose = document.querySelector(".closeModal");
+              modal.showModal();
+              buttonClose.onclick = function () {
+                modal.close();
+              };
+              const select = document.querySelector("#user_uuid");
+              const options = await getAllUsersWithoutDepartment(token);
+              options.forEach((element) => {
+                select.insertAdjacentHTML(
+                  "afterbegin",
+                  `
+                  <option value="${element.uuid}">${element.username}</option>
+                    
+                `
+                );
+              });
+              const ulviewUser = document.querySelector("#viewUser");
+              const allUsersView = await getAllUsers(token);
+              ulviewUser.innerHTML = "";
+
+              allUsersView.forEach((user) => {
+                if (user.department_uuid == element.uuid) {
+                  const tagLi = document.createElement("li");
+                  const userName = document.createElement("p");
+                  userName.classList = "userName";
+                  userName.innerText = user.username;
+                  const userLvl = document.createElement("p");
+                  userLvl.classList = "infoUser";
+                  userLvl.innerText = user.professional_level;
+                  const companyName = document.createElement("p");
+                  companyName.innerText = element.companies.name;
+                  const divBtn = document.createElement("div");
+                  divBtn.classList = "width100 flex justify-center";
+                  const btn = document.createElement("button");
+                  btn.addEventListener("click", async (e) => {
+                    e.preventDefault();
+                    await dismissEmployee(token, user.uuid);
+                    window.location.reload();
+                  });
+                  btn.classList = "btnWhiteRed";
+                  btn.innerText = "Desligar";
+
+                  divBtn.append(btn);
+                  tagLi.append(userName, userLvl, companyName, divBtn);
+
+                  ulviewUser.append(tagLi);
+                }
+              });
+
+              const form = document.querySelector("#formHire");
+              const elements = [...form.elements];
+
+              form.addEventListener("submit", async (e) => {
+                e.preventDefault();
+                const body = {};
+                elements.forEach((ele) => {
+                  if (ele.tagName == "SELECT") {
+                    body[ele.id] = ele.value;
+                    body["department_uuid"] = element.uuid;
+                  }
+                });
+                await hireEmployee(token, body);
+                window.location.reload();
+              });
+            });
             const imgEye = document.createElement("img");
             imgEye.src = "../../assets/olho.png";
             btnEye.append(imgEye);
 
             const btnPencil = document.createElement("button");
+            btnPencil.addEventListener("click", async (e) => {
+              e.preventDefault();
+              const modal = document.querySelector("#editDepartment");
+              const buttonClose = document.querySelector(".closeEditModal");
+              modal.showModal();
+              buttonClose.onclick = function () {
+                modal.close();
+              };
+
+              const form = document.querySelector("#formEditDepartment");
+
+              const elements = [...form];
+
+              form.addEventListener("submit", async (e) => {
+                e.preventDefault();
+                const body = {};
+
+                elements.forEach((element) => {
+                  if (element.tagName == "TEXTAREA") {
+                    body[element.id] = element.value;
+                  }
+                });
+                await editDepartment(token, body, element.uuid);
+                window.location.reload();
+              });
+            });
             const pencilImg = document.createElement("img");
             pencilImg.src = "../../assets/caneta.png";
             btnPencil.append(pencilImg);
 
             const btnTrash = document.createElement("button");
             const trashImg = document.createElement("img");
+            btnTrash.addEventListener("click", async (e) => {
+              e.preventDefault();
+              const modal = document.querySelector("#deleteDepartment");
+              const buttonClose = document.querySelector(
+                "#closeDeleteDepartment"
+              );
+              modal.showModal();
+              buttonClose.onclick = function () {
+                modal.close();
+              };
+
+              const nameDepartment = document.querySelector(
+                "#nameDeletedDepartment"
+              );
+              nameDepartment.innerText = element.name;
+              const deleteBtn = document.querySelector("#deleteBtn");
+              deleteBtn.addEventListener("click", async (e) => {
+                e.preventDefault();
+                await deleteDepartment(token, element.uuid);
+                window.location.reload();
+              });
+            });
+
             trashImg.src = "../../assets/lixeira.png";
             btnTrash.append(trashImg);
 
@@ -335,6 +600,31 @@ export const renderAllEmployes = async () => {
       companyName.innerText = getDepartmentName();
       const divBtns = document.createElement("div");
       const btnPencil = document.createElement("button");
+      btnPencil.addEventListener("click", async (e) => {
+        e.preventDefault();
+        const modal = document.querySelector("#editUser");
+        const buttonClose = document.querySelector(".closeEditModal");
+        modal.showModal();
+        buttonClose.onclick = function () {
+          modal.close();
+        };
+
+        const form = document.querySelector("#formEditUser");
+        const elements = [...form.elements];
+
+        form.addEventListener("submit", async (e) => {
+          e.preventDefault();
+          const body = {};
+          elements.forEach((element) => {
+            if (element.tagName == "SELECT") {
+              body[element.id] = element.value;
+            }
+          });
+          await updateEmployeeInformation(token, element.uuid, body);
+          window.location.reload();
+        });
+      });
+
       const imgPencil = document.createElement("img");
       imgPencil.src = "../../assets/caneta.png";
       const btnTrash = document.createElement("button");

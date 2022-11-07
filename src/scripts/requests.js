@@ -383,7 +383,7 @@ export async function createDepartment(token, body) {
 export async function hireEmployee(token, body) {
   try {
     const request = await fetch(`${baseUrl}/departments/hire/`, {
-      method: "PATH",
+      method: "PATCH",
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
@@ -421,7 +421,7 @@ export async function dismissEmployee(token, userId) {
   }
 }
 
-export async function editDepartment(token, departmentId) {
+export async function editDepartment(token, body, departmentId) {
   try {
     const request = await fetch(`${baseUrl}/departments/${departmentId}`, {
       method: "PATCH",
@@ -429,6 +429,7 @@ export async function editDepartment(token, departmentId) {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
       },
+      body: JSON.stringify(body),
     });
 
     // const response = await request.json();
@@ -443,16 +444,13 @@ export async function editDepartment(token, departmentId) {
 
 export async function deleteDepartment(token, departmentId) {
   try {
-    const request = await fetch(
-      `${baseUrl}/admin/delete_user/${departmentId}`,
-      {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-      }
-    );
+    const request = await fetch(`${baseUrl}/departments/${departmentId}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    });
 
     // const response = await request.json();
 
