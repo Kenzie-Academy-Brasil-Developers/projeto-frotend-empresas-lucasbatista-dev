@@ -98,7 +98,6 @@
   line-height: 21px;
   padding: 11px 37px;
   gap: 15px;
-  display: flex;
   color: var(--color-grey-1000);
   cursor: pointer;
 }

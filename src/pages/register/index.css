@@ -87,4 +87,9 @@ select {
     height: 519px;
     padding: 40px;
   }
+  .containerMain {
+    background-image: url(../../assets/Rectangle\ 7.png);
+    background-size: cover;
+    background-position: center;
+  }
 }
